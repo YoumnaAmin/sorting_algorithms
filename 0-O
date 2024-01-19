@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-O(1)
 O(n)
+O(n^2)
 O(n^2)
