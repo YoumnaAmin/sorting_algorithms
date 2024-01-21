@@ -1,66 +1,48 @@
 #include "sort.h"
-#include <stdio.h>
 
 /**
- * _swap - swaps two values in an array
- *
- * @array: data to sort
- * @i: first value
- * @j: second value
+ * partition - to divide and conqure
+ * @array: data to part
  * @size: size of data
- *
- * Return: No Return
- */
-void _swap(int *array, int i, int j, int size)
+ * @low: lowest pos
+ * @high: highest pos
+ * Return: int
+*/
+
+int partition(int *array, int low, int high, size_t size)
 {
-	int tmp;
+	int pivot, tmp;
+	int i, j;
 
-	if (array[i] != array[j])
-	{
-		tmp = array[i];
-		array[i] = array[j];
-		array[j] = tmp;
-		print_array(array, size);
-	}
-}
-
-/**
- * partition - sorts a partition of data in relation to a pivot
- *
- * @array: data to sort
- * @min: Left wall
- * @max: right wall
- * @size: size of data
- *
- * Return: New Pivot
- */
-int partition(int *array, int min, int max, size_t size)
-{
-	int i = min, j, pivot  = array[max];
-
-	for (j = min; j <= max; j++)
+	pivot = array[high];
+	i = low;
+	for (j = low; j <= high; j++)
 	{
 		if (array[j] < pivot)
 		{
-			_swap(array, i, j, size);
+			if (array[i] != array[j])
+			{
+				tmp = array[i];
+				array[i] = array[j];
+				array[j] = tmp;
+				print_array(array, size);
+			}
 			i++;
 		}
-
 	}
-	_swap(array, i, max, size);
-
+	tmp = array[i];
+	array[i] = array[high];
+	array[high] = tmp;
+	print_array(array, size);
 	return (i);
 }
 
 /**
- * quicksort -  sorts an array of integers in ascending order using the
- * Quick sort algorithm Lomuto partition scheme
- *
+ * quicksort -  sorts an array of integers
  * @array: data to sort
  * @min: Left wall
  * @max: right wall
  * @size: size of data
- *
  * Return: No Return
  */
 void quicksort(int *array, int min, int max, size_t size)
@@ -76,14 +58,12 @@ void quicksort(int *array, int min, int max, size_t size)
 }
 
 /**
- * quick_sort -  sorts an array of integers in ascending order using the
- * Quick sort algorithm Lomuto partition scheme
- *
+ * quick_sort - sorts an array of integers
  * @array: data to sort
  * @size: size of data
- *
  * Return: No Return
  */
+
 void quick_sort(int *array, size_t size)
 {
 	if (size < 2)
