@@ -4,6 +4,8 @@
  * partition - to divide and conqure
  * @array: data to part
  * @size: size of data
+ * @low: lowest pos
+ * @high: highest pos
  * Return: int
 */
 
@@ -18,10 +20,13 @@ int partition(int *array, int low, int high, size_t size)
 	{
 		if (array[j] < pivot)
 		{
-			tmp = array[i];
-			array[i] = array[j];
-			array[j] = tmp;
-			print_array(array, size);
+			if (array[i] != array[j])
+			{
+				tmp = array[i];
+				array[i] = array[j];
+				array[j] = tmp;
+				print_array(array, size);
+			}
 			i++;
 		}
 	}
