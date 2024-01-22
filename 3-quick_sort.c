@@ -18,7 +18,7 @@ int partition(int *array, int low, int high, size_t size)
 	i = low;
 	for (j = low; j <= high; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
 			if (array[i] != array[j])
 			{
