@@ -28,12 +28,13 @@ void counting_sort(int *array, size_t size)
 		output_array[i] = 0;
 
 	for (i = 0; i < size; i++)
-		count_array[array[i]]++;
-
-	for (k = 1; k <= mx; k++)
-		count_array[k] += count_array[k - 1];
-
-	print_array(count_array, mx);
+		for (j = 0; j < mx + 1; j++)
+			if (j == array[i])
+				count_array[j] += 1;
+	/*Modificate the count in the array*/
+	for (i = 0; (int)i < mx; i++)
+		count_array[i + 1] = count_array[i] + count_array[i + 1];
+	print_array(count_array, mx + 1);
 
 	for (j = size - 1; j >= 0; j--)
 	{
