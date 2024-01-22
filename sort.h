@@ -29,5 +29,6 @@ void quick_sort(int *array, size_t size);
 int partition(int *array, int low, int high, size_t size);
 void quicksort(int *array, int min, int max, size_t size);
 void _swap(listint_t **head_ref, listint_t *a, listint_t *b);
+void counting_sort(int *array, size_t size);
 
 #endif
