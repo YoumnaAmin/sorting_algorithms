@@ -12,6 +12,8 @@ void counting_sort(int *array, size_t size)
 	size_t i;
 	int *count_array, *output_array;
 
+	if (array == NULL || size < 2)
+		return;
 	mx = 0;
 	for (i = 0; i < size; i++)
 	{
@@ -19,8 +21,11 @@ void counting_sort(int *array, size_t size)
 			mx = array[i];
 	}
 
-	count_array = (int *)calloc(mx + 1, sizeof(int));
+	count_array = (int *)malloc((mx + 1) * sizeof(int));
+
 	output_array = (int *)malloc(size * sizeof(int));
+	for (i = 0; i < size; i++)
+		output_array[i] = 0;
 
 	for (i = 0; i < size; i++)
 		count_array[array[i]]++;
