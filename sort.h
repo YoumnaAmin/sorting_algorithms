@@ -30,5 +30,9 @@ int partition(int *array, int low, int high, size_t size);
 void quicksort(int *array, int min, int max, size_t size);
 void _swap(listint_t **head_ref, listint_t *a, listint_t *b);
 void counting_sort(int *array, size_t size);
-
+void merge(int *array, int *sorted_array, int min, int max, int mid);
+void mergeSort(int *array, int *buff, int min, int max, size_t size);
+void merge_sort(int *array, size_t size);
+void printcheck(int *array, int r1, int r2);
+void copy_sortedarray(int *src, int *dst, int size);
 #endif
